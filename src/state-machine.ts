@@ -6,8 +6,11 @@
   Released under the MIT license - https://github.com/jakesgordon/javascript-state-machine/blob/master/LICENSE
 
 */
+declare function define(...args: any[]): any;
+declare function require(path: string): any;
+declare function exports(path: string): any;
 
-(function () {
+export function StateMachine() {
 
   var StateMachine = {
 
@@ -197,34 +200,5 @@
 
   }; // StateMachine
 
-  //===========================================================================
-
-  //======
-  // NODE
-  //======
-  if (typeof exports !== 'undefined') {
-    if (typeof module !== 'undefined' && module.exports) {
-      exports = module.exports = StateMachine;
-    }
-    exports.StateMachine = StateMachine;
-  }
-  //============
-  // AMD/REQUIRE
-  //============
-  else if (typeof define === 'function' && define.amd) {
-    define(function(require) { return StateMachine; });
-  }
-  //========
-  // BROWSER
-  //========
-  else if (typeof window !== 'undefined') {
-    window.StateMachine = StateMachine;
-  }
-  //===========
-  // WEB WORKER
-  //===========
-  else if (typeof self !== 'undefined') {
-    self.StateMachine = StateMachine;
-  }
-
-}());
+  return StateMachine;
+};
